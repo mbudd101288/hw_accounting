@@ -49,7 +49,9 @@ def accounting(order_report, melon_cost = 1.00):
                     f"expected ${expected_cost:.2f}")
             # if they are different - print order details
             print()
-        
+    
+    customer_log.close()
+    
 accounting("customer-orders.txt")
 
 
