@@ -48,10 +48,20 @@ def accounting(order_report, melon_cost = 1.00):
             print (f"{name} paid ${amt_paid:.2f},",
                     f"expected ${expected_cost:.2f}")
             # if they are different - print order details
-            print()
+            
+            if amt_paid > expected_cost:
+                overage = amt_paid - expected_cost
+                print("You overpaid for your melons!")
+                print(f"We owe you ${overage:.2f}")
+                print()
+            elif expected_cost > amt_paid:
+                under = expected_cost - amt_paid 
+                print("You underpaid for your melons...")
+                print(f"You owe us ${under:.2f}.")
+                print()
     
     customer_log.close()
-    
+
 accounting("customer-orders.txt")
 
 
